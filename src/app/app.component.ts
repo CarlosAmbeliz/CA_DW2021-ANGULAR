@@ -20,6 +20,11 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
+  public navegarContactos():void
+  {
+    this.router.navigate(['/contacts']);
+  }
+
   public CallService(): void{
     const test = {
       hola: 'hola'

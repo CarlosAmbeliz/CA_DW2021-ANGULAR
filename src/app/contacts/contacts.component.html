@@ -1,0 +1,78 @@
+<style>
+
+    #lstContactos{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contactRow{
+        background-color: rgb(240,240,240);
+        margin-bottom: 1px;
+    }
+
+    .contactRow a{
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    .contactRow .contactImage
+    {
+        max-width: 110px;
+        width:100%;
+        height: auto;;
+    }
+    .contactRow .contactName
+    {
+        margin-top: 10px;
+    }
+    .contactRow p{
+        margin:0;
+    }
+
+    /*Tamaño de Fuentes*/
+
+    @media (max-width: 760px) {
+
+        .contactRow .contactName
+        {
+            font-size: 18px;
+        }
+        .contactRow .contactTel
+        {
+            font-size: 12px;
+        }
+    }
+    @media (min-width: 761px) {
+        .contactRow .contactName
+        {
+            font-size: 36px;
+        }
+        .contactRow .contactTel
+        {
+            font-size: 16px;
+        }
+    }
+</style>
+
+
+<h1>Lista de contactos</h1>
+
+<ul id="lstContactos">
+    <li *ngFor="let contacto of resultado">
+        <div class="contactRow">
+            <a href="#">
+                <div class="row">
+                    <div class="col-4 col-md-3 col-lg-2">
+                        <img src="https://cdn0.iconfinder.com/data/icons/communication-line-10/24/account_profile_user_contact_person_avatar_placeholder-512.png" alt="Nombre" class="contactImage">
+                    </div>
+                    <div class="col-8 col-md-9 col-lg-10">
+                        <p class="contactName">{{contacto.nombres}} {{contacto.apellidos}}</p>
+                        <p class="contactTel">{{contacto.telefono}}</p>
+                    </div>
+                </div>
+            </a>    
+        </div>
+    </li>
+
+</ul>

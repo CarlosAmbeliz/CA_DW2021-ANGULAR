@@ -7,11 +7,13 @@ import { LoginComponent } from './login/login.component';
 
 //librearias agregadas
 import {HttpClientModule} from '@angular/common/http';
+import { ContactsComponent } from './contacts/contacts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,

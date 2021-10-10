@@ -22,4 +22,19 @@ export class TestService {
     return this.httpClient.post("http://localhost:3000/test", JSON.stringify(request),{headers: headear})
 
   }
+
+  public GetContacts(): Observable<any>
+  {
+      //Header
+      const headear = new HttpHeaders(
+        {
+          'Content-Type':'application/json'
+        }
+      );
+  
+      //Enviar POST
+      return this.httpClient.get("http://localhost:9902/api/contact/getall?idUsuario=1", {headers: headear})
+  
+  }
+
 }
