@@ -1,0 +1,48 @@
+<style>
+    .titulo{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .frmAddContact button{
+     margin-right: 15px;   
+    }
+    input[type=text]
+    {
+        background-color: rgb(161, 161, 161);
+        color: black !important;
+        height: 50px;
+    }
+</style>
+
+<div class="container">
+    <div class="titulo">
+        <h1>Crear Nuevo Contacto</h1>
+    </div>
+
+    <div class="frmAddContact">
+        <form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="firstname">Nombres:</label>
+                <input type="text" class="form-control" placeholder="Ingresa nombres" id="firstname"  formControlName="firstname">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Apellidos:</label>
+                <input type="text" class="form-control" placeholder="Ingresa apellidos" id="lastname"  formControlName="lastname">
+            </div>
+            <div class="form-group">
+                <label for="address">Direccion:</label>
+                <input type="text" class="form-control" placeholder="Ingresa direccion" id="address"  formControlName="address">
+            </div>
+            <div class="form-group">
+                <label for="tel">Telefono:</label>
+                <input type="text" class="form-control" placeholder="Ingresa telefono" id="tel"  formControlName="tel">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" placeholder="Ingresa email" id="email"  formControlName="email">
+            </div>
+            <button type="submit" class="btn btn-primary">Grabar</button>
+            <button class="btn btn-light">Regresar</button>
+        </form>
+    </div>
+</div>

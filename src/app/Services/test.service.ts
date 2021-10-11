@@ -9,7 +9,7 @@ export class TestService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public callTestService(request:any) : Observable<any>{
+  public AddContact(request:any) : Observable<any>{
 
     //Header
     const headear = new HttpHeaders(
@@ -18,9 +18,17 @@ export class TestService {
       }
     );
 
+    let ContactDto = {
+      IdUsuario: 1,
+      Nombres: request.firstname.toString(),
+      Apellidos: request.lastname.toString(),
+      Direccion: request.address.toString(),
+      Telefono: request.tel.toString(),
+      Email: request.email.toString(),
+    }
+    console.log(JSON.stringify(ContactDto));
     //Enviar POST
-    return this.httpClient.post("http://localhost:3000/test", JSON.stringify(request),{headers: headear})
-
+    return this.httpClient.post("http://localhost:9902/api/contact/add/", JSON.stringify(ContactDto),{headers: headear})
   }
 
   public GetContacts(): Observable<any>

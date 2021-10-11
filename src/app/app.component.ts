@@ -25,13 +25,11 @@ export class AppComponent {
     this.router.navigate(['/contacts']);
   }
 
-  public CallService(): void{
-    const test = {
-      hola: 'hola'
-    };
-    this.testService.callTestService(test).subscribe(result=>{
+  public navegarAddContactos():void{
+    this.router.navigate(['/add']);
+  }
 
-      console.log(JSON.stringify(result));
-    })
+  public CallService(): void{
+
   }
 }
