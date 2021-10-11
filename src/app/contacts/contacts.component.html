@@ -1,18 +1,24 @@
 <style>
+    .titulo{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 
     #lstContactos{
         list-style-type: none;
         padding: 0;
         margin: 0;
+        margin-bottom: 30px;
     }
 
     .contactRow{
-        background-color: rgb(240,240,240);
-        margin-bottom: 1px;
+        background-color: rgb(80, 177, 1);
+        margin-bottom: 15px;
+        border-radius: 15px;
     }
 
     .contactRow a{
-        color: black !important;
+        color: white !important;
         text-decoration: none !important;
     }
 
@@ -28,6 +34,12 @@
     }
     .contactRow p{
         margin:0;
+    }
+
+    .greenMessageText{
+        color: greenyellow;
+        font-size: 22px;
+        font-weight: bold;
     }
 
     /*Tamaño de Fuentes*/
@@ -54,25 +66,30 @@
         }
     }
 </style>
+<div class="container">
 
-
-<h1>Lista de contactos</h1>
-
-<ul id="lstContactos">
-    <li *ngFor="let contacto of resultado">
-        <div class="contactRow">
-            <a href="#">
-                <div class="row">
-                    <div class="col-4 col-md-3 col-lg-2">
-                        <img src="https://cdn0.iconfinder.com/data/icons/communication-line-10/24/account_profile_user_contact_person_avatar_placeholder-512.png" alt="Nombre" class="contactImage">
+    <div class="titulo">
+        <h1>Lista de contactos</h1>
+        <p>Aqui puedes ver todos los contactos que tienes grabados</p>
+    </div>
+    <p *ngIf="resultado.length==0" class="greenMessageText">Aún no tienes ningun contacto guardado.</p>
+    <ul id="lstContactos">
+        <li *ngFor="let contacto of resultado">
+            <div class="contactRow">
+                <a href="#">
+                    <div class="row">
+                        <div class="col-4 col-md-3 col-lg-2">
+                            <img src="../../assets/contact.png" alt="Nombre" class="contactImage">
+                        </div>
+                        <div class="col-8 col-md-9 col-lg-10">
+                            <p class="contactName">{{contacto.nombres}} {{contacto.apellidos}}</p>
+                            <p class="contactTel">{{contacto.telefono}}</p>
+                        </div>
                     </div>
-                    <div class="col-8 col-md-9 col-lg-10">
-                        <p class="contactName">{{contacto.nombres}} {{contacto.apellidos}}</p>
-                        <p class="contactTel">{{contacto.telefono}}</p>
-                    </div>
-                </div>
-            </a>    
-        </div>
-    </li>
+                </a>    
+            </div>
+        </li>
+    
+    </ul>
+</div>
 
-</ul>

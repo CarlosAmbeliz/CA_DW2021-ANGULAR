@@ -1,4 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color: rgb(50,50,50);
+    color: white;
+}
 *{
     box-sizing: border-box;
 }
+
+
+footer{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+footer #logoMariano{
+    max-width: 160px;
+}
+
+footer .contenedorLogo{
+ display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 40px;
+}
+  /*
+footer .contenedorDatosDeveloper{
+    display: inline-block;
+    vertical-align: middle;
+}
+*/
