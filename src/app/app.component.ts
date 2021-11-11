@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { TestService } from './Services/test.service';
+import {   OAuthService } from 'angular-oauth2-oidc';
+import {JwksValidationHandler} from 'angular-oauth2-oidc-jwks';
+import { authConfig } from './auth.config';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +13,21 @@ import { TestService } from './Services/test.service';
 export class AppComponent {
   title = 'dw-ui';
 
-  constructor(private router: Router, private testService: TestService)
+  constructor(private router: Router, private testService: TestService, private oauthService: OAuthService)
   {
-
+    this.oauthService.configure(authConfig);
+    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
+
+
+  login(){ this.oauthService.initImplicitFlow(); }
+  logout(){ this.oauthService.logOut(); }
+  getClaims() {
+    let claims = this.oauthService.getIdentityClaims();
+    if(!claims) return null;
+    return claims;
+ }
 
   public navegarLogin():void
   {

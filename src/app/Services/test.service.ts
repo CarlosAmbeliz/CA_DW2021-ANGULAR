@@ -1,13 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { OAuthService } from 'angular-oauth2-oidc';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private oauthService: OAuthService) { }
 
   public AddContact(request:any) : Observable<any>{
 
@@ -36,11 +37,13 @@ export class TestService {
       //Header
       const headear = new HttpHeaders(
         {
-          'Content-Type':'application/json'
+          "Authorization": "Bearer " + this.oauthService.getAccessToken(),
+          'Content-Type':'application/json',
         }
       );
   
-      //Enviar POST
+      console.log(headear);
+
       return this.httpClient.get("http://localhost:9902/api/contact/getall?idUsuario=1", {headers: headear})
   
   }

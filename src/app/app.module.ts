@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { OAuthModule } from 'angular-oauth2-oidc';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,6 +27,7 @@ import { AddContactComponent } from './add-contact/add-contact.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    OAuthModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
